@@ -117,12 +117,22 @@ class ToolQuartus(ToolSyn):
             """Function that looks for a existing device family name and
             try to guess the value from the device string if not defined"""
             family_names = {
+                "^EPM2.*$": "MAX II",
                 "^EP2AGX.*$": "Arria II GX",
+                "^EP3CLS.*$": "Cyclone III LS",
                 "^EP3C.*$": "Cyclone III",
+                "^EP3S.*$": "Stratix III",
                 "^EP4CE.*$": "Cyclone IV E",
                 "^EP4CGX.*$": "Cyclone IV GX",
+                "^EP4S.*$": "Stratix IV",
+                "^5C.*$": "Cyclone V",
+                "^5M.*$": "MAX V",
                 "^5A.*$": "Arria V",
-                "^5S.*$": "Stratix V"}
+                "^5S.*$": "Stratix V",
+                "^10CL.*$": "Cyclone 10 LP",
+                "^10CX.*$": "Cyclone 10 GX",
+                "^10A.*$": "Arria 10",
+                "^10S.*$": "Stratix 10"}
             if family is None:
                 for key in family_names:
                     if re.match(key, device.upper()):
